@@ -1,10 +1,10 @@
 # RELATÓRIO TÉCNICO - SIMULADOR DE SUBSTITUIÇÃO DE PÁGINAS
 
-## 📑 Informações do Projeto
+##  Informações do Projeto
 
 **Disciplina**: Sistemas Operacionais  
 **Tema**: Gerenciamento de Memória Virtual - Algoritmos de Substituição de Páginas  
-**Desenvolvedor**: [Seu Nome Aqui]  
+**Desenvolvedor**: [João Victor Lira]  
 **Status**: Finalizado e Testado  
 
 ---
@@ -42,11 +42,11 @@ O simulador conta com 5 métodos de substituição:
 
 Para garantir a facilidade de uso, o projeto foi organizado com nomes diretos e scripts automatizados.
 
-### 🚀 Forma Rápida (Windows)
+###  Forma Rápida (Windows)
 Navegue até a pasta `scripts` e execute:
 *   **`run-modern.bat`**: Compila e abre o Dashboard moderno automaticamente.
 
-### 💻 Via Terminal
+###  Via Terminal
 ```bash
 # Compilar todos os arquivos
 javac -d build src/*.java
