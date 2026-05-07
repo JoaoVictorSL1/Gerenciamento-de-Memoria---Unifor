@@ -230,4 +230,4 @@ java SimulatorGUI
 4. Visualize os resultados nas abas
 
 --- 
-
+Link Readme: https://github.com/JoaoVictorSL1/Gerenciamento-de-Memoria---Unifor/
