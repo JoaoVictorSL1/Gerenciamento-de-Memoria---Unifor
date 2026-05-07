@@ -1,12 +1,7 @@
 import java.util.*;
 
-/**
- * Classe principal que implementa os 4 algoritmos de substituição de páginas:
- * FIFO, LRU, Clock e Ótimo
- */
-public class PageReplacementSimulator {
+public class Simulador {
 
-    // ==================== FIFO ====================
     public static SimulationResult fifo(int[] pages, int frameSize) {
         Queue<Integer> frames = new LinkedList<>();
         Set<Integer> framesSet = new HashSet<>();
@@ -34,7 +29,6 @@ public class PageReplacementSimulator {
         return new SimulationResult("FIFO", pageFaults, trace);
     }
 
-    // ==================== LRU ====================
     public static SimulationResult lru(int[] pages, int frameSize) {
         Map<Integer, Integer> lastUsed = new HashMap<>();
         Set<Integer> framesSet = new HashSet<>();
@@ -52,7 +46,6 @@ public class PageReplacementSimulator {
                     framesSet.add(page);
                     lastUsed.put(page, timestamp);
                 } else {
-                    // Remove a página menos recentemente usada
                     int lruPage = framesSet.stream()
                             .min(Comparator.comparingInt(p -> lastUsed.getOrDefault(p, 0)))
                             .orElse(-1);
@@ -68,7 +61,6 @@ public class PageReplacementSimulator {
         return new SimulationResult("LRU", pageFaults, trace);
     }
 
-    // ==================== CLOCK (Segunda Chance) ====================
     public static SimulationResult clock(int[] pages, int frameSize) {
         List<Integer> frames = new ArrayList<>();
         Map<Integer, Boolean> referenceBit = new HashMap<>();
@@ -85,7 +77,6 @@ public class PageReplacementSimulator {
                     frames.add(page);
                     referenceBit.put(page, false);
                 } else {
-                    // Procura uma página com bit de referência 0
                     while (referenceBit.getOrDefault(frames.get(pointer), false)) {
                         referenceBit.put(frames.get(pointer), false);
                         pointer = (pointer + 1) % frameSize;
@@ -103,7 +94,6 @@ public class PageReplacementSimulator {
         return new SimulationResult("Clock", pageFaults, trace);
     }
 
-    // ==================== ÓTIMO ====================
     public static SimulationResult optimal(int[] pages, int frameSize) {
         Set<Integer> frames = new HashSet<>();
         int pageFaults = 0;
@@ -113,7 +103,6 @@ public class PageReplacementSimulator {
             int page = pages[i];
 
             if (frames.contains(page)) {
-                // Página já está em memória
                 continue;
             }
 
@@ -122,7 +111,6 @@ public class PageReplacementSimulator {
             if (frames.size() < frameSize) {
                 frames.add(page);
             } else {
-                // Encontra a página que será usada mais longe no futuro
                 int pageToRemove = findFurthestPage(pages, i + 1, frames);
                 frames.remove(pageToRemove);
                 frames.add(page);
@@ -133,7 +121,6 @@ public class PageReplacementSimulator {
         return new SimulationResult("Ótimo", pageFaults, trace);
     }
 
-    // Função auxiliar para o algoritmo Ótimo
     private static int findFurthestPage(int[] pages, int startIndex, Set<Integer> frames) {
         int furthestPage = -1;
         int furthestDistance = -1;
@@ -155,19 +142,52 @@ public class PageReplacementSimulator {
         return furthestPage == -1 ? frames.iterator().next() : furthestPage;
     }
 
-    /**
-     * Executa todos os 4 algoritmos e retorna os resultados
-     */
+    public static SimulationResult lfu(int[] pages, int frameSize) {
+        Map<Integer, Integer> frequency = new HashMap<>();
+        Set<Integer> frames = new HashSet<>();
+        int pageFaults = 0;
+        List<String> trace = new ArrayList<>();
+
+        for (int page : pages) {
+            frequency.put(page, frequency.getOrDefault(page, 0) + 1);
+            if (frames.contains(page)) {
+                trace.add("Página " + page + " já está na memória (Frequência: " + frequency.get(page) + ")");
+            } else {
+                pageFaults++;
+                if (frames.size() < frameSize) {
+                    frames.add(page);
+                } else {
+                    int lfuPage = -1;
+                    int minFreq = Integer.MAX_VALUE;
+                    
+                    for (int f : frames) {
+                        int freq = frequency.get(f);
+                        if (freq < minFreq) {
+                            minFreq = freq;
+                            lfuPage = f;
+                        }
+                    }
+                    
+                    frames.remove(lfuPage);
+                    frames.add(page);
+                    trace.add("Página " + lfuPage + " removida (LFU - Freq: " + minFreq + "). Página " + page + " inserida.");
+                }
+            }
+        }
+
+        return new SimulationResult("LFU", pageFaults, trace);
+    }
+
     public static List<SimulationResult> runAllAlgorithms(int[] pages, int frameSize) {
         List<SimulationResult> results = new ArrayList<>();
         results.add(fifo(pages, frameSize));
         results.add(lru(pages, frameSize));
         results.add(clock(pages, frameSize));
         results.add(optimal(pages, frameSize));
+        results.add(lfu(pages, frameSize));
         return results;
     }
 
-    // Classe interna para armazenar resultados
     public static class SimulationResult {
         public String algorithmName;
         public int pageFaults;

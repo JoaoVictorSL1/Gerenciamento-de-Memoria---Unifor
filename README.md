@@ -1,154 +1,84 @@
-# Simulador de Substituição de Páginas em Java
+# RELATÓRIO TÉCNICO - SIMULADOR DE SUBSTITUIÇÃO DE PÁGINAS
 
-## 📋 Descrição
+## 📑 Informações do Projeto
 
-Simulador educacional que implementa 4 algoritmos de substituição de páginas para gerenciamento de memória virtual:
+**Disciplina**: Sistemas Operacionais  
+**Tema**: Gerenciamento de Memória Virtual - Algoritmos de Substituição de Páginas  
+**Desenvolvedor**: [Seu Nome Aqui]  
+**Status**: Finalizado e Testado  
 
-1. **FIFO (First In, First Out)** - Remove a página mais antiga
-2. **LRU (Least Recently Used)** - Remove a página menos recentemente usada
-3. **Clock (Segunda Chance)** - Algoritmo circular com bit de referência
-4. **Ótimo** - Remove a página usada mais longe no futuro (referência teórica)
+---
 
-## 🚀 Como Usar
+## 1. Introdução
 
-### Requisitos
-- Java 8 ou superior
-- IDE Java (Eclipse, IntelliJ, VS Code + Extension Pack for Java) OU terminal
+O gerenciamento eficiente da memória virtual é um dos pilares de desempenho dos sistemas operacionais modernos. Quando a memória física (RAM) atinge sua capacidade máxima, o sistema deve decidir qual página remover para dar lugar a novos dados. Este processo é controlado por **Algoritmos de Substituição de Páginas**.
 
-### Compilação e Execução
+Este projeto apresenta um simulador educacional desenvolvido em Java que implementa e compara o desempenho dos principais algoritmos utilizados academicamente e em sistemas reais.
 
-#### Opção 1: Interface Moderna (Recomendado) ⭐
+---
+
+## 2. Objetivos
+
+*   Compreender o funcionamento prático da substituição de páginas.
+*   Implementar e testar algoritmos clássicos e heurísticos.
+*   Comparar a eficiência (faltas de página) entre diferentes métodos.
+*   Fornecer uma interface visual moderna para facilitar a análise de dados.
+
+---
+
+## 3. Algoritmos Implementados
+
+O simulador conta com 5 métodos de substituição:
+
+1.  **FIFO (First In, First Out)**: A página mais antiga na memória é a primeira a ser removida.
+2.  **LRU (Least Recently Used)**: Substitui a página que não foi utilizada por mais tempo.
+3.  **Clock (Segunda Chance)**: Uma otimização do FIFO que usa um bit de referência para dar uma "segunda chance" a páginas acessadas recentemente.
+4.  **Ótimo (Optimal)**: O benchmark teórico que remove a página que será usada mais longe no futuro (requer conhecimento prévio da sequência).
+5.  **LFU (Least Frequently Used)**: Remove a página com a menor frequência de acesso acumulada.
+
+---
+
+## 4. Guia de Execução
+
+Para garantir a facilidade de uso, o projeto foi organizado com nomes diretos e scripts automatizados.
+
+### 🚀 Forma Rápida (Windows)
+Navegue até a pasta `scripts` e execute:
+*   **`run-modern.bat`**: Compila e abre o Dashboard moderno automaticamente.
+
+### 💻 Via Terminal
 ```bash
-# Navegue até o diretório do projeto
-cd "c:/Users/joaov/Desktop/Substituição de Memoria"
+# Compilar todos os arquivos
+javac -d build src/*.java
 
-# Compile os arquivos
-javac *.java
-
-# Execute a versão moderna
-java ModernSimulatorGUI
+# Executar o ponto de entrada principal
+java -cp build Main
 ```
 
-#### Opção 2: Interface Clássica
-```bash
-# Navegue até o diretório do projeto
-cd "c:/Users/joaov/Desktop/Substituição de Memoria"
+---
 
-# Compile os arquivos
-javac *.java
+## 5. Estrutura do Código
 
-# Execute a aplicação clássica
-java SimulatorGUI
-```
+*   **`Main.java`**: Gerencia a inicialização, exibindo resultados no console e abrindo a interface gráfica.
+*   **`Simulador.java`**: O "núcleo" do projeto, onde estão implementadas as lógicas de todos os algoritmos.
+*   **`Interface.java`**: Define o Dashboard moderno com o painel lateral de controle.
+*   **`Grafico.java`**: Responsável pela renderização visual dos gráficos de desempenho.
 
-#### Opção 2: IDE
-1. Crie um novo projeto Java
-2. Copie os arquivos `PageReplacementSimulator.java` e `SimulatorGUI.java` para o projeto
-3. Execute a classe `SimulatorGUI`
+---
 
-### Usando a Aplicação
+## 6. Análise de Resultados
 
-1. **Entrada de Sequência de Páginas**: Digite as páginas separadas por espaço, vírgula ou ponto-e-vírgula
-   - Exemplo: `1 2 3 4 1 2 5 1 2 3 4 5`
-   - Exemplo: `1,2,3,4,1,2,5,1,2,3,4,5`
+Ao executar o simulador, os resultados são apresentados em três formatos:
+1.  **Console**: Resumo rápido das faltas de página.
+2.  **Dashboard (Gráfico)**: Comparação visual imediata da eficiência.
+3.  **Tabela de Dados**: Exibição detalhada incluindo a porcentagem de eficiência de cada método.
 
-2. **Tamanho da Memória**: Especifique quantos frames (slots) a memória possui
-   - Use o spinner para ajustar (1-20)
+---
 
-3. **Executar Simulação**: Clique no botão "Executar Simulação"
+## 7. Referências
 
-### Abas de Resultados
+*   TANENBAUM, A. S. **Sistemas Operacionais Modernos**. 4ª ed. Pearson, 2016.
+*   SILBERSCHATZ, A.; GALVIN, P. B.; GAGNE, G. **Operating System Concepts**. 9ª ed. Wiley, 2012.
 
-- **Gráfico Comparativo**: Visualização em barras comparando faltas de página
-- **Tabela de Resultados**: Exibição em tabela dos resultados
-- **Log de Execução**: Trace detalhado de cada algoritmo
-
-## 🎨 Versão Moderna
-
-Agora disponível uma **interface moderna e elegante** com:
-
-✨ **Design Profissional**
-- Paleta de cores vibrantes e modernas
-- Gradientes e cantos arredondados
-- Tipografia moderna (Segoe UI)
-- Ícones emoji para melhor visualização
-
-📊 **Gráficos Aprimorados**
-- Barras com gradiente
-- Grade de referência
-- Legenda integrada
-- Setas nos eixos
-
-⚡ **Melhor UX**
-- Status em tempo real
-- Botões responsivos
-- Tabela com linhas alternadas
-- Log formatado com símbolos
-
-Para usar a versão moderna, execute:
-```bash
-java ModernSimulatorGUI
-```
-
-Veja mais detalhes em `INTERFACE_MODERNA.md`
-
-## 📊 Exemplos de Entrada
-
-### Exemplo 1 - Sequência simples
-```
-Sequência: 1 2 3 4 1 2 5 1 2 3 4 5
-Tamanho: 3 frames
-```
-
-### Exemplo 2 - Sequência com padrão
-```
-Sequência: 0 1 2 3 0 1 2 3 0 1 2 3
-Tamanho: 3 frames
-```
-
-## 🎯 Objetivos Educacionais
-
-Este simulador permite:
-- Compreender o funcionamento de diferentes algoritmos de substituição
-- Comparar a eficiência entre algoritmos
-- Visualizar o impacto do tamanho da memória nas faltas de página
-- Analisar o comportamento de cada algoritmo em diferentes padrões de acesso
-
-## 📈 Comparativo de Algoritmos
-
-| Algoritmo | Complexidade | Implementação | Eficiência |
-|-----------|-------------|---------------|-----------|
-| FIFO | O(1) | Simples | Baixa (pode causar anomalia de Belady) |
-| LRU | O(n) | Média | Alta (próxima ao ótimo) |
-| Clock | O(1) amortizado | Média | Média-Alta (bom compromisso) |
-| Ótimo | O(n²) | Complexa | Máxima (referência teórica) |
-
-## 🔧 Estrutura do Código
-
-```
-PageReplacementSimulator.java
-├── fifo()           - Implementação do algoritmo FIFO
-├── lru()            - Implementação do algoritmo LRU
-├── clock()          - Implementação do algoritmo Clock
-├── optimal()        - Implementação do algoritmo Ótimo
-└── SimulationResult - Classe para armazenar resultados
-
-SimulatorGUI.java
-├── SimulatorGUI     - Frame principal da aplicação
-├── ChartPanel       - Painel para desenhar gráfico
-└── Métodos de interface
-```
-
-## 💡 Notas Importantes
-
-- O algoritmo **Ótimo** é de referência teórica: ele requer conhecimento futuro, que não é possível em sistemas reais
-- O algoritmo **LRU** é geralmente considerado o melhor em relação custo-benefício
-- O algoritmo **Clock** oferece uma aproximação eficiente do LRU com menos overhead
-- **FIFO** pode sofrer da anomalia de Belady: adicionar mais frames pode aumentar faltas
-
-## 📝 Autor
-Desenvolvido como projeto acadêmico sobre gerenciamento de memória virtual.
-
-## 📚 Referências
-- Tanenbaum, A. S. - Sistemas Operacionais Modernos
-- https://sdpm-simulator.netlify.app
+---
+**Maio de 2026**

@@ -1,5 +1,6 @@
 @echo off
 REM Script de compilação e execução - Versão Moderna
+REM Compilações organizada - gera .class em build/
 
 echo ========================================
 echo Simulador de Substituicao de Paginas
@@ -8,10 +9,12 @@ echo ========================================
 echo.
 
 echo Compilando arquivos Java...
-javac *.java
+cd src
+javac -d ../build *.java
 
 if %errorlevel% neq 0 (
     echo Erro na compilacao!
+    cd ..
     pause
     exit /b 1
 )
@@ -21,6 +24,8 @@ echo.
 echo Iniciando aplicacao...
 echo.
 
-java ModernSimulatorGUI
+cd ../build
+java Main
 
+cd ..
 pause

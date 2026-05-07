@@ -4,9 +4,9 @@
 
 **Disciplina**: Sistemas Operacionais  
 **Tema**: Gerenciamento de Memória Virtual - Algoritmos de Substituição de Páginas  
-**Data de Entrega**: [Insira a data]  
-**Aluno(a)**: [Insira o nome]  
-**Matrícula**: [Insira a matrícula]  
+**Data de Entrega**: [07/05/2026]  
+**Aluno(a)**: [João Victor Lira Saraiva Leão]  
+**Matrícula**: [2320445]  
 
 ---
 
@@ -91,7 +91,7 @@ Este trabalho apresenta a implementação de um simulador educacional que permit
 | FIFO      | 9               |
 | LRU       | 10              |
 | Clock     | 10              |
-| Ótimo     | 7 ⭐           |
+| Ótimo     | 7               |
 
 **Análise**: O algoritmo ótimo apresenta o melhor desempenho, enquanto FIFO, LRU e Clock apresentam desempenho semelhante.
 
@@ -106,7 +106,7 @@ Este trabalho apresenta a implementação de um simulador educacional que permit
 | FIFO      | 12              |
 | LRU       | 12              |
 | Clock     | 12              |
-| Ótimo     | 9 ⭐           |
+| Ótimo     | 9               |
 
 **Análise**: Todos os algoritmos heurísticos produzem o mesmo resultado neste caso, indicando uma sequência particularmente desafiadora. O ótimo demonstra significativa superioridade.
 
@@ -121,7 +121,7 @@ Este trabalho apresenta a implementação de um simulador educacional que permit
 | FIFO      | 10              |
 | LRU       | 10              |
 | Clock     | 10              |
-| Ótimo     | 7 ⭐           |
+| Ótimo     | 7               |
 
 **Análise**: Demonstra como FIFO pode não ser adequado, embora neste caso todos os heurísticos tenham produzido resultado idêntico.
 
@@ -136,7 +136,7 @@ Este trabalho apresenta a implementação de um simulador educacional que permit
 | FIFO      | 17              |
 | LRU       | 17              |
 | Clock     | 17              |
-| Ótimo     | 10 ⭐          |
+| Ótimo     | 10              |
 
 **Análise**: Com sequências mais longas, a vantagem do algoritmo ótimo aumenta significativamente.
 
@@ -153,9 +153,9 @@ Comparativo de Faltas de Página (Teste 1)
 │     ■ FIFO   ■ LRU    ■ Clock   ■ Ótimo
 │
 10 │ ┌─┐
-   │ │9│  ┌──┐  ┌──┐
+   │ │9│ ┌──┐ ┌──┐
  9 │ └─┘ │10│ │10│
-   │     └──┘ └──┘  ┌─┐
+   │     └──┘ └──┘ ┌─┐
  8 │               │7│
    │               └─┘
  7 │
@@ -229,7 +229,5 @@ java SimulatorGUI
 3. Clique em "Executar Simulação"
 4. Visualize os resultados nas abas
 
----
+--- 
 
-**Data de Conclusão**: [Insira a data]  
-**Assinatura do Aluno**: ________________________

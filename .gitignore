@@ -1,0 +1,23 @@
+# Arquivos compilados
+build/
+*.class
+*.o
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+.classpath
+.project
+
+# Temporários
+tmp/
+temp/
+*.log
