@@ -54,4 +54,4 @@ O simulador cumpriu seu papel educacional, permitindo visualizar que não existe
 
 ## 🔗 Referências e Código Fonte
 *   **Código Fonte**: Disponível nos arquivos `Simulador.java`, `Interface.java`, `Grafico.java` e `Main.java`.
-*   **README Completo**: [Link para o README ou Repositório]
+*   **README Completo**: https://github.com/JoaoVictorSL1/Gerenciamento-de-Memoria---Unifor
