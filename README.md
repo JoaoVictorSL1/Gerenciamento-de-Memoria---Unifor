@@ -17,7 +17,7 @@ Simulador educacional que implementa 4 algoritmos de substituição de páginas 
 
 ### Compilação e Execução
 
-#### Opção 1: Usando o terminal (Windows)
+#### Opção 1: Interface Moderna (Recomendado) ⭐
 ```bash
 # Navegue até o diretório do projeto
 cd "c:/Users/joaov/Desktop/Substituição de Memoria"
@@ -25,11 +25,23 @@ cd "c:/Users/joaov/Desktop/Substituição de Memoria"
 # Compile os arquivos
 javac *.java
 
-# Execute a aplicação
+# Execute a versão moderna
+java ModernSimulatorGUI
+```
+
+#### Opção 2: Interface Clássica
+```bash
+# Navegue até o diretório do projeto
+cd "c:/Users/joaov/Desktop/Substituição de Memoria"
+
+# Compile os arquivos
+javac *.java
+
+# Execute a aplicação clássica
 java SimulatorGUI
 ```
 
-#### Opção 2: Usando IDE
+#### Opção 2: IDE
 1. Crie um novo projeto Java
 2. Copie os arquivos `PageReplacementSimulator.java` e `SimulatorGUI.java` para o projeto
 3. Execute a classe `SimulatorGUI`
@@ -50,6 +62,35 @@ java SimulatorGUI
 - **Gráfico Comparativo**: Visualização em barras comparando faltas de página
 - **Tabela de Resultados**: Exibição em tabela dos resultados
 - **Log de Execução**: Trace detalhado de cada algoritmo
+
+## 🎨 Versão Moderna
+
+Agora disponível uma **interface moderna e elegante** com:
+
+✨ **Design Profissional**
+- Paleta de cores vibrantes e modernas
+- Gradientes e cantos arredondados
+- Tipografia moderna (Segoe UI)
+- Ícones emoji para melhor visualização
+
+📊 **Gráficos Aprimorados**
+- Barras com gradiente
+- Grade de referência
+- Legenda integrada
+- Setas nos eixos
+
+⚡ **Melhor UX**
+- Status em tempo real
+- Botões responsivos
+- Tabela com linhas alternadas
+- Log formatado com símbolos
+
+Para usar a versão moderna, execute:
+```bash
+java ModernSimulatorGUI
+```
+
+Veja mais detalhes em `INTERFACE_MODERNA.md`
 
 ## 📊 Exemplos de Entrada
 
