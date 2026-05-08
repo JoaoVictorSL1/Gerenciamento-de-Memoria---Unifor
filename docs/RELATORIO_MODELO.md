@@ -1,13 +1,4 @@
 # RELATÓRIO - SIMULADOR DE SUBSTITUIÇÃO DE PÁGINAS
-
-## Informações do Trabalho
-
-**Disciplina**: Sistemas Operacionais  
-**Tema**: Gerenciamento de Memória Virtual - Algoritmos de Substituição de Páginas  
-**Data de Entrega**: [07/05/2026]  
-**Aluno(a)**: [João Victor Lira Saraiva Leão]  
-**Matrícula**: [2320445]  
-
 ---
 
 ## 1. Introdução

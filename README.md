@@ -4,7 +4,7 @@
 
 **Disciplina**: Sistemas Operacionais  
 **Tema**: Gerenciamento de Memória Virtual - Algoritmos de Substituição de Páginas  
-**Desenvolvedor**: [João Victor Lira]  
+**Desenvolvedor**: [João Victor Lira , Cauan Gomes,Isadora Neves]  
 **Status**: Finalizado e Testado  
 
 ---
